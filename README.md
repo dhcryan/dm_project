@@ -8,7 +8,13 @@
     * 골키퍼를 제외한 필드 플레이어 데이터 분류 및 index 정리 
     * Web scraping from Understat.com and find team with problems
 2. Problem and Solution Approach
+    * Problem
     * PCA
-    * Clustering
-4. Radar chart for similar player
+    * K-Means Clustering
+    * Visualization
+3. Radar chart for similar player
     
+-------------------
+csv파일 및 logos 이미지를 활용하려면 google drive mount해야 함
+
+혹시 몰라서 이 프로젝트 안의 directory에 넣어둠
