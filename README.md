@@ -1,5 +1,6 @@
 # 2022-2 IT집중교육 Data Mining Project
 ## 주성분 분석, k-means 알고리즘, 유사도 분석을 통한 축구 선수 scouting system 구축
+## **README.md 파일 수정해놓겠습니다. 잠시만요..!**
 
 1. Data gathering & preprocessing
     * package import and download csv file
