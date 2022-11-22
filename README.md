@@ -93,10 +93,34 @@ FIFA23 데이터에 대해 주성분 분석을 수행하였다. 우선 앞서 �
 4개로 결정하였다. 즉, 4개의 주성분으로 전체 분산의 95% 이상을 설명할 수 있다는 뜻이다.<br>
 ![PCA](https://user-images.githubusercontent.com/98611647/203235603-df427acf-5a54-4ca5-a47f-e3ed25fffd70.png)
 <br>
+#### K-Means 클러스터링
 PCA를 통해 차원 축소한 데이터는 원래의 데이터에서 변형이 되었기 때문에 의미를 찾아내고 시각화하기 위해서는 K-Means 클러스터링이 필요하다. 그림을 통해 보면 K-means는 
 미리 클러스터 수 k를 지정해야 하는데, 같은 군집 내 WCSS(Within Clusters Sum of Squares)가 급격히 완만해지는 구간의 k를 선택하는 ‘Elbow Method’를 사용했다. 그림에서 
 제일 많이 구부러지는 구간이 5라고 판단, k 값을 5로 설정했다.<br>
 ![kmeans](https://user-images.githubusercontent.com/98611647/203236308-a42be7e1-595c-4ad7-8965-9d9eb7149f10.png)
 <br>
+PCA와 클러스터링을 마친 필드플레이어 데이터를 보기 좋게 정렬하여 `nongk_pca_kmeans_ordered_df` 를 따로 만들어둔다.<br>
+|index|FullName|Cluster|BestPosition|PCA Component 1|PCA Component 2|PCA Component 3|PCA Component 4|
+|---|---|---|---|---|---|---|---|
+|0|Lionel Messi|4|CAM|6\.726875065674799|0\.34223703992104687|0\.6151663857887155|0\.1818814577997888|
+|1|Karim Benzema|4|CF|5\.81627982229692|-0\.33601425783181144|0\.13266939982782247|1\.3940524811560353|
+|2|Robert Lewandowski|4|ST|5\.701663691690086|-1\.0781429485361387|0\.18994213169147892|1\.9998437341982238|
+|3|Kevin De Bruyne|4|CM|5\.87885244944403|-1\.4075809716525158|0\.854529663227299|-0\.41736482679129916|
+|4|Kylian Mbappé|4|ST|6\.356857994119857|0\.24921799047173887|-1\.293110204879021|0\.9641799809836442|
+<br>
 
+#### Visualization (시각화)
+**PCA component 2개를 활용해 2차원으로 시각화**<br>
+![2d](https://user-images.githubusercontent.com/98611647/203243205-65ecf17c-a57c-4637-88a0-b9e16ab11c9a.png)
+군집화는 잘 됐지만 pca component들이 무엇을 의미하는지 모른다<br>
+![3d](https://user-images.githubusercontent.com/98611647/203243306-829d4222-cbdb-4ace-bbd2-577a41579671.png)<br>
+
+방사형 차트(radar chart)를 통해 시각화하고 데이터프레임의 선수들과 비교해보면 군집 분석 결과를 쉽게 설명할 수 있다. 군집마다
+주성분 분석을 하기 전의 원래 필드 플레이어 Feature에 투영하여 특징을 정확하게 파악할 수 있다. 
+![radar](https://user-images.githubusercontent.com/98611647/203243506-e5fb2cdc-72be-4af2-8ec0-2c16435c0eca.png)
+<br>
+0번, 1번 군집은 거의 모양이 유사한 공격
+수 군집이다. 하지만 속도, 슛, 힘 등 전반적인 능력치가 1번 군집이 더 좋다. 2번, 3번 군집도 마찬가지로 서로 모양이 비슷한 수비수 군집이지만
+2번 군집의 전반적인 능력치가 더 좋다. 마지막으로 4번 군집은 거의 모든 능력치가 골고루 좋으며 all-round player, 혹은 수준급 선수들의 군집
+으로 분류됨을 확인할 수 있다. 즉, 각 군집의 특성을 정확한 세부 능력치를 통해 파악할 수 있다.<br>
 
