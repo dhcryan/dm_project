@@ -86,4 +86,17 @@ xG & xGA difference 를 통해 알아보는 강등권 팀 지표<br>
 이를 시각화하여 표현할 경우 그림에서 볼 수 있듯이 xGA_diff의 평균값을 x축, xG_diff의 평균값을 y축이라 가정했을 때, 제 사분면에 해당하는 팀들이 하위권일
 확률이 높으며 실제로 중위권인 Brighton(Brighton &Hove Albion FC)을 제외하곤 강등권에 가까운 팀들임을 확인할 수 있다.<br>
 
+#### PCA
+FIFA23 데이터에 대해 주성분 분석을 수행하였다. 우선 앞서 필드 플레이어 데이터는 표준화(standardazation)를 통해 데이터 스케일링(data scaling)을 수행하여 분산량이 
+왜곡되는 것을 막는다. 그 후 7개의 선수 특성 관련 데이터를 차원 축소를 통해 줄이고자 한다. 아래의 그림2는 주성분 각각의 고윳값을 고윳값 전체를 더한 값으로 나눠 준 
+것이며 이를 통해 해당 주성분의 고윳값이 차지하는 비율을 알 수 있다. 또한 알고리즘을 통해 누적 분산량이 전체 중 95%를 넘을 때 기준으로 주성분 개수(n_components)를 
+4개로 결정하였다. 즉, 4개의 주성분으로 전체 분산의 95% 이상을 설명할 수 있다는 뜻이다.<br>
+![PCA](https://user-images.githubusercontent.com/98611647/203235603-df427acf-5a54-4ca5-a47f-e3ed25fffd70.png)
+<br>
+PCA를 통해 차원 축소한 데이터는 원래의 데이터에서 변형이 되었기 때문에 의미를 찾아내고 시각화하기 위해서는 K-Means 클러스터링이 필요하다. 그림을 통해 보면 K-means는 
+미리 클러스터 수 k를 지정해야 하는데, 같은 군집 내 WCSS(Within Clusters Sum of Squares)가 급격히 완만해지는 구간의 k를 선택하는 ‘Elbow Method’를 사용했다. 그림에서 
+제일 많이 구부러지는 구간이 5라고 판단, k 값을 5로 설정했다.<br>
+![kmeans](https://user-images.githubusercontent.com/98611647/203236308-a42be7e1-595c-4ad7-8965-9d9eb7149f10.png)
+<br>
+
 
