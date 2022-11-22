@@ -69,8 +69,16 @@ Table of contents 목차
 
 `The expected score (xG) is a new revolutionary football indicator that can evaluate the performance of teams and players.`
 <br>
+
+### 2. Problem and Solution Approach
+#### 용어 설명
 PPDA: 압박 강도(우리 팀)<br>
 PPDA_allowd: 압박 강도(상대 팀)<br>
 xG_diff : xG와 실제 득점 수의 차이, 이 값이 양의 방향으로 클수록 기대 득점에 비해 골을 넣지 못했으며 팀의 골결정력이 낮다고 볼 수 있다.<br>
 xGA_diff : xGA와 실제 실점 수의 차이, 이 값이 음의 방향으로 클수록 기대 실점에 비해 더 많은 실점을 기록했으며 팀의 수비력이 좋지 않다고 볼 수 있다.<br>
 xpts_diff: xpts와 실제 승점간의 차이, 이 값이 양의 방향으로 클수록 기대 승점에 비해 승점을 쌓지 못했다고 볼 수 있다.
+
+#### Problem
+`xG_diff>EPL_df['xG_diff'].mean(), xGA_diff<EPL_df['xGA_diff'].mean(), xpts_diff>EPL_df['xpts_diff'].mean()` 세 조건 모두 해당되는 팀은 하위권일 확률이 높다.
+
+
