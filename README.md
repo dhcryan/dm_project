@@ -23,6 +23,7 @@ Table of contents 목차
 3. **Radar chart for similar player**
     * Cosine similarity
     * Search player name and show top10 similar player
+4. **Conclusion**
 -------------------
 ### 1. Data gathering & preprocessing
 이 프로젝트를 위해 kaggle에 있는 FIFA23 dataset를 활용한다. 이 데이터는 18,000명 이상의 선수와 90여개 정도의 신체 능력치, 포지션별 능력치, 세부 능력치를 feature(특징)로 
@@ -140,4 +141,48 @@ PCA와 클러스터링을 마친 필드플레이어 데이터를 보기 좋게 �
 
 선수 이름(FullName)을 입력한 뒤에 코사인 유사도를 구하는 함수를 만들어 실행할 수 있다. 예를 들어 손흥민(Heung Min Son) 선수를 입력값으로 할 때 같은 군집 안에 
 있는 모든 데이터와 유사도를 계산하여 그 수치가 높은 순서대로 출력한다. <br>
+|index|FullName|Similarity|
+|---|---|---|
+|0|Kai Havertz|0\.99759|
+|1|José Luis Morales Nogales|0\.99744|
+|2|João Félix Sequeira|0\.99724|
+|3|Christian Bernardi|0\.99709|
+|4|Jack Harrison|0\.99682|
+|5|Jarrod Bowen|0\.99632|
+|6|Nikola Vlašić|0\.99617|
+|7|Ali Gholizadeh|0\.99544|
+|8|Nabil Fekir|0\.99451|
+|9|Domenico Berardi|0\.99450|
+<br>
+또한 이번엔 선수의 특성을 방사형 차트에 나타내는 알고리즘을 만들어 확인해 보면 그림과 같이 선수와 유사한 능력치 혹은 그래프 모양을
+가진 선수들이 similar player로 제대로 출력되는 것을 확인할 수 있다. 이들의 포지션(Position)은모두 공격수이며 손흥민 선수처럼 빠른 속도를
+가진 선수들이다. 이들의 손흥민 선수에 대한 유사도가 높게 나온 것을 보면 앞서 수행한 데이터 마이닝 알고리즘들이 정상적으로 실행되었음을 확인할 수 있다.
+![sonny_similar](https://user-images.githubusercontent.com/98611647/203247826-a10904ed-d62b-46dd-80be-852c047f838d.png)
+<br> 유명선수인 크리스티아누 호날두 (Cristiano Ronaldo) 선수에 대해서도 확인할 수 있다. 최근 방출설이 나오므로 구단 입장에서는 이 알고리즘을 통해 대체자
+를 찾을 수 있다.<br>
+![ronaldo](https://user-images.githubusercontent.com/98611647/203248521-24b6f01d-8061-4ee6-848d-a6f5d553d253.png)
+![cr7_radar](https://user-images.githubusercontent.com/98611647/203248535-ccdbfedc-9719-4ab7-9271-4deec20e64a5.png)<br>
+|index|FullName|Similarity|
+|---|---|---|
+|0|Karim Benzema|0\.99807|
+|1|Antonio José Rodríguez Díaz|0\.99744|
+|2|Odsonne Edouard|0\.99612|
+|3|João Pedro G\. Santos Galvão|0\.99565|
+|4|Wissam Ben Yedder|0\.99541|
+|5|Rodrigo Moreno Machado|0\.99533|
+|6|Anthony Nwakaeme|0\.99489|
+|7|Gerard Moreno Balagueró|0\.99383|
+|8|Davidson Da Luz Pereira|0\.99379|
+|9|Danny Ings|0\.99290|
+<br>
+![cr7_similar](https://user-images.githubusercontent.com/98611647/203248742-4b21f35d-a384-4a25-a25f-0df4d2729e4e.png)
 
+
+### 4. Conclusion
+xG, xGA, xpts와 같은 실제 축구에서 사용 중인 데이터를 통해 구단의 문제점을 파악하고 이에 대한 해결책을 게임 데이터를 통해 찾아 다양한 데이터들을 활용했다는
+데 의의가 있다. 실제로 선수를 나타내는 데이터가 상당히 많아서 K-means 클러스터링을 바로 하지 않고 주성분 분석으로 적절히 데이터를 처리한 뒤에 클러스터링하
+여 더 좋은 군집화 성능을 보였다. 이를 바탕으로 유사도 분석까지 하여 선수들의 특성을 파악하고 대체자를 추천해 주는 알고리즘을 만들어 앞서 말한 구단의 문제점을
+해결하는 방안을 만들었다고 생각한다. 다만 보완해야 할 점이 몇 가지가 있다. 본 논문은 필드 플레이어에 대해서만 데이터 마이닝을 수행하여서 골키퍼를 고려하지 않
+았다. 또한 알고리즘적 요소나 앱으로 구현한 요소가 부족했다고 생각한다. 마지막으로 본 논문은 구단에서 활약이 좋은 선수의 대체자 영입에 집중했지만 활약이 저조한
+선수일 경우 이들의 능력치를 기반으로 유사도 분석하면 유의미한 결과를 얻기 어렵다. 따라서 해당 구단의 전술을 분석하여 그에 맞는 새로운 선수를 찾는 알고리즘을
+추후 고안해볼 수 있다.
