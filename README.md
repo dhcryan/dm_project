@@ -111,16 +111,33 @@ PCA와 클러스터링을 마친 필드플레이어 데이터를 보기 좋게 �
 
 #### Visualization (시각화)
 **PCA component 2개를 활용해 2차원으로 시각화**<br>
-![2d](https://user-images.githubusercontent.com/98611647/203243205-65ecf17c-a57c-4637-88a0-b9e16ab11c9a.png)
+![2d](https://user-images.githubusercontent.com/98611647/203243205-65ecf17c-a57c-4637-88a0-b9e16ab11c9a.png)<br>
 군집화는 잘 됐지만 pca component들이 무엇을 의미하는지 모른다<br>
 ![3d](https://user-images.githubusercontent.com/98611647/203243306-829d4222-cbdb-4ace-bbd2-577a41579671.png)<br>
 
+### 3. Radar chart for similar player
 방사형 차트(radar chart)를 통해 시각화하고 데이터프레임의 선수들과 비교해보면 군집 분석 결과를 쉽게 설명할 수 있다. 군집마다
 주성분 분석을 하기 전의 원래 필드 플레이어 Feature에 투영하여 특징을 정확하게 파악할 수 있다. 
 ![radar](https://user-images.githubusercontent.com/98611647/203243506-e5fb2cdc-72be-4af2-8ec0-2c16435c0eca.png)
 <br>
-0번, 1번 군집은 거의 모양이 유사한 공격
-수 군집이다. 하지만 속도, 슛, 힘 등 전반적인 능력치가 1번 군집이 더 좋다. 2번, 3번 군집도 마찬가지로 서로 모양이 비슷한 수비수 군집이지만
-2번 군집의 전반적인 능력치가 더 좋다. 마지막으로 4번 군집은 거의 모든 능력치가 골고루 좋으며 all-round player, 혹은 수준급 선수들의 군집
-으로 분류됨을 확인할 수 있다. 즉, 각 군집의 특성을 정확한 세부 능력치를 통해 파악할 수 있다.<br>
+0번, 3번 군집은 거의 모양이 유사한 공격수 군집이다. 하지만 속도, 슛, 힘 등 전반적인 능력치가 3번 군집이 더 좋다. 1번, 2번 군집도 마찬가지로 서로 모양이 비슷한 수비수 군집이지만 1번 군집의 전반적인 능력치가 더 좋다. 마지막으로 4번 군집은 거의 모든 능력치가 골고루 좋으며 all-round player, 혹은 수준급 선수들의 군집으로 분류됨을 확인할 수 있다. 즉, 각 군집의 특성을 정확한 세부 능력치를 통해 파악할 수 있다.<br>
+![cluster0](https://user-images.githubusercontent.com/98611647/203243998-e3857437-77d3-446f-b2a3-d3cfa83af89b.png)
+![cluster1](https://user-images.githubusercontent.com/98611647/203244383-a731fc41-838b-4afe-ad7e-7c08fb5086ee.png)
+![cluster2](https://user-images.githubusercontent.com/98611647/203244426-aab2b775-a085-4990-bed0-e0ae41e0b942.png)
+![cluster3](https://user-images.githubusercontent.com/98611647/203244479-1cb342b7-c37d-4548-84c5-fdbed3261d7c.png)
+![cluster4](https://user-images.githubusercontent.com/98611647/203244510-aa140f67-4a66-4bbc-aa67-614b42de74c8.png)
+
+<br>
+앞서 군집화한 데이터들을 바탕으로 입력한 선수를 대체할 수 있을 만큼의 유사한 선수를 알려주는 프로그램을 만들 수 있다. 본 논문에서는 다
+양한 유사도 공식 중에 제일 보편적인 코사인 유사도 공식(Cosine similarity)에 따른 유사도 분석을 수행할 것이다.  이 기법은 서로 다른 두 개의 벡터의 유
+사도를 측정하는 데 특화된 수식으로 클러스터링 연구 분야에서 많이 활용되는 기법이다.
+<br>
+
+`ipywidgets` 는 UI 라이브러리로 함수를 전달하면 셀렉트 박스나 슬라이더의 조작으로 인수를 변경하면서 함수 실행 가능하여 이를 통해 선수를 검색해 볼 수 있다.
+<br>
+![sonny](https://user-images.githubusercontent.com/98611647/203247139-8cacaa01-52a4-42fb-80c9-a4a689b146e6.png)
+![radar_sonny](https://user-images.githubusercontent.com/98611647/203247147-b4836aa9-a896-4a52-8fc0-ac66a0fda6b8.png)
+
+선수 이름(FullName)을 입력한 뒤에 코사인 유사도를 구하는 함수를 만들어 실행할 수 있다. 예를 들어 손흥민(Heung Min Son) 선수를 입력값으로 할 때 같은 군집 안에 
+있는 모든 데이터와 유사도를 계산하여 그 수치가 높은 순서대로 출력한다. <br>
 
