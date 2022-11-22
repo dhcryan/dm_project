@@ -211,3 +211,18 @@ xG, xGA, xpts와 같은 실제 축구에서 사용 중인 데이터를 통해 �
 았다. 또한 알고리즘적 요소나 앱으로 구현한 요소가 부족했다고 생각한다. 마지막으로 본 논문은 구단에서 활약이 좋은 선수의 대체자 영입에 집중했지만 활약이 저조한
 선수일 경우 이들의 능력치를 기반으로 유사도 분석하면 유의미한 결과를 얻기 어렵다. 따라서 해당 구단의 전술을 분석하여 그에 맞는 새로운 선수를 찾는 알고리즘을
 추후 고안해볼 수 있다.
+
+
+**참고문헌**
+[1] 김윤후, 김상헌, 최형준, 정재은.(2018).빅데이터 분석과 게임이론을 활용한 야구선수 영입 모델. 한국컴퓨터정보학회 학술발표논문집 ,26(2),321-322.<br>
+[2] MICHAEL PARK, 이경묵.(2021).Liability of High Status: Overpayment to Relieve Status Anxiety in the English Premier League.Seoul Journal of
+Business,27(1),23-48.<br>
+[3] Transfer deadline day: Premier League spending reaches record £1.9bn for summer window . (2022). https://www.bbc.com/sport/football/62758471 <br>
+[4] FIFA23 OFFICIAL DATASET . (2022). Retrieved from https://www.kaggle.com/datasets/bryanb/fifa-player-stats-database?select=FIFA23_official_data.csv <br>
+[5] EPL xG Table and Scorers for the 2022/2023 season .(2022). https://understat.com/league/EPL/2022 <br>
+[6] What is an expected goal? Description of expected goals . (2018). Retrieved from https://www.pinnacle.com/ko/betting-articles/Soccer/expected-goals-explained/B8Q2HGJ7XMJRZ58C.<br>
+[7] 서창우, 임영환.(2009).화자식별을 위한 전역 공분산에 기반한 주성분분석.말소리와 음성과학,1(1),69-73.<br>
+[8] Struyf, A., M. Hubert, and P. Rousseeuw, "Clustering in an Object-Oriented Environment," Journal of Statistical Software, Vol.1, No.4, pp.1-30,1997.<br>
+[9] 박수연, 이도길.(2022).K-평균 클러스터링 및 주성분 분석을 활용한 뉴스 앱 이용자 유형 분류.한국정보과학회 학술발표논문집,(),1372-1374.<br>
+[10] https://en.wikipedia.org/wiki/Cosine_similarity
+
