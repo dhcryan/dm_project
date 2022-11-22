@@ -182,6 +182,26 @@ PCA와 클러스터링을 마친 필드플레이어 데이터를 보기 좋게 �
 
 ![cr7_similar](https://user-images.githubusercontent.com/98611647/203248742-4b21f35d-a384-4a25-a25f-0df4d2729e4e.png)
 
+<br> 유명 수비수인 `버질 반 다이크 (Gerard Piqué Bernabeu)` 선수에 대해서도 확인할 수 있다. <br>
+![dijk](https://user-images.githubusercontent.com/98611647/203253063-9061ba2f-bc82-4c04-9a47-046f4f427dee.png)
+
+![dijk_radar](https://user-images.githubusercontent.com/98611647/203253098-a652fa21-1c37-4675-9ae2-f7a1116dd8ae.png)
+
+|index|FullName|Similarity|
+|---|---|---|
+|0|Mario Hermoso Canseco|0\.99869|
+|1|Marcos Aoás Corrêa|0\.99866|
+|2|Enzo Díaz|0\.99829|
+|3|Nathan Aké|0\.99827|
+|4|Willian Souza Arão da Silva|0\.99812|
+|5|Matheus Reis de Lima|0\.99767|
+|6|Brian Oliván Herrero|0\.99696|
+|7|Pavel Kadeřábek|0\.99693|
+|8|David Martínez|0\.99605|
+|9|Ruben Aguilar|0\.99575|
+
+![dijk_similarradar](https://user-images.githubusercontent.com/98611647/203253697-acd90708-0be4-49c0-84c7-035423049b4a.png)
+
 
 ### 4. Conclusion
 xG, xGA, xpts와 같은 실제 축구에서 사용 중인 데이터를 통해 구단의 문제점을 파악하고 이에 대한 해결책을 게임 데이터를 통해 찾아 다양한 데이터들을 활용했다는
