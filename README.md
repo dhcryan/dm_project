@@ -79,6 +79,11 @@ xGA_diff : xGA와 실제 실점 수의 차이, 이 값이 음의 방향으로 �
 xpts_diff: xpts와 실제 승점간의 차이, 이 값이 양의 방향으로 클수록 기대 승점에 비해 승점을 쌓지 못했다고 볼 수 있다.
 
 #### Problem
-`xG_diff>EPL_df['xG_diff'].mean(), xGA_diff<EPL_df['xGA_diff'].mean(), xpts_diff>EPL_df['xpts_diff'].mean()` 세 조건 모두 해당되는 팀은 하위권일 확률이 높다.
+`xG_diff>EPL_df['xG_diff'].mean(), xGA_diff<EPL_df['xGA_diff'].mean(), xpts_diff>EPL_df['xpts_diff'].mean()` 세 조건 모두 해당되는 팀은 하위권일 확률이 높다.<br>
+xG & xGA difference 를 통해 알아보는 강등권 팀 지표<br>
+![EPL_XDIFF](https://user-images.githubusercontent.com/98611647/203234362-131f59c1-2796-4133-aada-1d51b9a805f8.png)
+<br>
+이를 시각화하여 표현할 경우 그림에서 볼 수 있듯이 xGA_diff의 평균값을 x축, xG_diff의 평균값을 y축이라 가정했을 때, 제 사분면에 해당하는 팀들이 하위권일
+확률이 높으며 실제로 중위권인 Brighton(Brighton &Hove Albion FC)을 제외하곤 강등권에 가까운 팀들임을 확인할 수 있다.<br>
 
 
